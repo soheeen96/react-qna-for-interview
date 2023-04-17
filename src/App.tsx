@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import QuestionAnswer from "./components/QuestionAnswer";
+import QuestionAnswer from "./Components/QuestionAnswer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Routes/Home";
+import Header from "./Components/Header";
 
 const Title = styled.h1`
   font-size: 24px;
@@ -9,10 +12,13 @@ const Title = styled.h1`
 
 function App() {
   return (
-    <div>
-      <Title>리액트 면접 대비 정리</Title>
-      <QuestionAnswer />
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/qna" element={<QuestionAnswer />}></Route>
+      </Routes>
+    </Router>
   );
 }
 

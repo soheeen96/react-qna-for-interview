@@ -13,6 +13,7 @@ const Question = styled.p``;
 const AnswerButton = styled.button``;
 const Answer = styled.li`
   width: 100%;
+  white-space: pre-wrap;
 `;
 
 interface Question {
@@ -47,6 +48,10 @@ function QuestionAnswer() {
             </AnswerButton>
 
             {showAnswer[index] && <Answer>{question.answer}</Answer>}
+            {/* {showAnswer[index] &&
+              question.answer
+                .split("\n")
+                .map((line, i) => <Answer key={i}>{line}</Answer>)} */}
           </QuestionWrap>
         ))}
       </QnAWrap>
